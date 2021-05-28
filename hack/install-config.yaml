@@ -1,0 +1,44 @@
+apiVersion: v1
+baseDomain: SPECIFY_YOUR_BASE_DOMAIN
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+  platform:
+    aws:
+      type: m5.xlarge
+      rootVolume:
+        iops: 2000
+        size: 100
+        type: io1
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 4
+  platform:
+    aws:
+      type: m5.xlarge
+      rootVolume:
+        size: 100
+        type: gp2
+metadata:
+  name: SPECIFY_YOUR_CLUSTER_NAME
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineCIDR: 10.0.0.0/16
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  aws:
+    region: us-east-1
+    userTags:
+      contact: SPECIFY_YOUR_EMAIL_ADDRESS
+      purpose: demo
+publish: External
+pullSecret: 'SPECIFY_YOUR_PULL_SECRET'
+sshKey: |
+  ssh-rsa SPECIFY_YOUR_SSH_RSA_PUBLIC_KEY
+

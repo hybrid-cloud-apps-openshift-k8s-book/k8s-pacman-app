@@ -15,4 +15,4 @@ spec:
     # ns1.f5cloudservices.com
     # ns2.f5cloudservices.com
     GSLB_ZONE: www-apps
-    BASE_DOMAIN: SPECIFY_YOUR_CLUSTER_NAME.SPECIFY_YOUR_BASE_DOMAIN
+    BASE_DOMAIN: SPECIFY_YOUR_CLUSTER_ADDRESS
